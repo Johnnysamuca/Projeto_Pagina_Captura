@@ -1,0 +1,639 @@
+// Variaveis
+$branco: #fff;
+$azul: #246785;
+$amarelo: #edb806;
+$amarelo-Claro: #eebe2a;
+$marrom: #997a1b;
+$cinza: #4b4d4d;
+$azul-escuro: #1c415c;
+
+// Mixins
+@mixin flex($flow: row, $aling: stretch, $justify: start, $gap: 0) {
+  display: flex;
+  flex-flow: $flow;
+  align-items: $aling;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+@mixin response($lenght) {
+  @if $lenght == "extraLarge" {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+
+  @if $lenght == "large" {
+    @media (max-width: 64.4em) {
+      @content;
+    }
+  }
+
+  @if $lenght == "medium" {
+    @media (max-width: 58.13em) {
+      @content;
+    }
+  }
+
+  @if $lenght == "small" {
+    @media (max-width: 30em) {
+      @content;
+    }
+  }
+}
+
+// Padrão
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include response("extraLarge") {
+    font-size: 56.25%;
+  }
+
+  @include response("large") {
+    font-size: 50%;
+  }
+
+  @include response("medium") {
+    font-size: 43.8%;
+  }
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  font-family: "Montsserat", sans-serif;
+}
+
+// Seção Hero
+.secao-hero {
+  background-image: url(https://cdn.prod.website-files.com/61b9e0dd381626819c8d4f83/64957938a8a62d8071397ed5_pgc-python-bg1.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  & .container-imagem-informacao {
+    @include flex();
+
+    & .card-informacoes {
+      @include flex(column, center, start, 1.6rem);
+      background-color: $branco;
+      border-radius: 2rem;
+      padding: 3rem;
+      width: 50rem;
+      line-height: 1.2;
+      align-self: center;
+      transform: translateX(35%);
+
+      & .titulo {
+        text-align: center;
+        font-size: 4.9rem;
+        color: $azul-escuro;
+      }
+
+      & .subtitulo {
+        font-size: 3.32rem;
+        color: #4b4d4d;
+      }
+
+      & .lista {
+        @include flex($flow: column, $gap: 1.28rem);
+
+        & .container-item {
+          @include flex($aling: center, $gap: 1.6rem);
+          & .item {
+            list-style: none;
+
+            & .realce {
+              font-weight: 700;
+            }
+          }
+        }
+      }
+
+      & .text-onlineGratuito {
+        font-weight: 700;
+        font-size: 2.3rem;
+      }
+
+      & .btn {
+        width: 100%;
+        padding: 1.28rem 1.92rem;
+        border-radius: 2rem;
+        font-size: 2.76rem;
+        font-weight: 600;
+        color: $branco;
+        background-color: $amarelo-Claro;
+        border-color: $marrom;
+        border-right: 4px solid $marrom;
+        border-bottom: 4px solid $marrom;
+        transition: all 0.3s ease-in;
+
+        &:hover {
+          background-color: $branco;
+          color: $amarelo-Claro;
+        }
+      }
+
+      & .logo-hastag {
+        @include flex($aling: center, $justify: center);
+        width: 8rem;
+        height: 8rem;
+        position: absolute;
+        background-color: $branco;
+        transform: translate(300%, -70%);
+        border-radius: 50%;
+        box-shadow: inset 0rem 0rem 0.6rem rgba(0, 0, 0, 30%);
+
+        & img {
+          width: 80%;
+        }
+
+        @include response("small") {
+          width: 7rem;
+          height: 7rem;
+          transform: translate(315%, -90%);
+        }
+      }
+
+      @include response("medium") {
+        transform: translate(0, 10%);
+      }
+    }
+
+    & .image-lira-hero {
+      width: 60%;
+
+      @include response("medium") {
+        width: 306px;
+      }
+    }
+
+    @include response("medium") {
+      @include flex(column, center, start, 0);
+    }
+  }
+}
+
+// Seção disclaimer
+.secao-disclaimer {
+  background-color: #e1e1e1;
+  padding: 2rem 2rem;
+  box-shadow: 1rem 0rem 0.6rem rgba(0, 0, 0, 0.15);
+
+  & .text {
+    text-align: center;
+  }
+}
+
+// Seção Passos
+.secao-passos {
+  padding: 6rem 18rem;
+
+  & .container {
+    @include flex(column, center, center, 3.12rem);
+    max-width: 100rem;
+
+    & .container-titulo {
+      @include flex($aling: center, $gap: 1.6rem);
+      align-self: flex-start;
+
+      & .subtitulo {
+        font-size: 4.1rem;
+
+        @include response("medium") {
+          font-size: 3.12rem;
+        }
+      }
+
+      & .realce {
+        color: $azul;
+      }
+
+      @include response("medium") {
+        align-self: center;
+      }
+    }
+
+    & .container-passos {
+      @include flex(column, center, start, 0);
+      width: 100%;
+
+      & .caixa-organiza-passos {
+        @include flex($aling: center, $justify: space-between);
+        width: 100%;
+
+        & .passo {
+          @include flex(column, stretch, start, 1.28rem);
+          max-width: 30rem;
+
+          & .titulo {
+            @include flex($aling: center, $gap: 1.02rem);
+            font-size: 2.3rem;
+
+            & .realce-titulo {
+              color: $azul;
+            }
+          }
+
+          & .txt {
+            font-size: 1.92rem;
+
+            & .realce {
+              font-weight: 700;
+            }
+          }
+        }
+
+        @include response("medium") {
+          @include flex(column, center, start, 3.12rem);
+        }
+      }
+
+      & .imagem-lira {
+        width: 40%;
+      }
+
+      @include response("medium") {
+        @include flex(column, center, start, 4.88rem);
+      }
+    }
+  }
+
+  @include response("medium") {
+    padding: 6rem 9rem;
+  }
+}
+
+// Seção aprender
+.secao-aprender {
+  padding: 6rem 18rem;
+
+  & .container {
+    @include flex(column, center, center, 4.88rem);
+    max-width: 100rem;
+
+    & .container-titulo {
+      @include flex($aling: center, $gap: 1.6rem);
+      align-self: flex-start;
+      max-width: 60rem;
+
+      & .subtitulo {
+        font-size: 4.88rem;
+        font-weight: 500;
+        line-height: 1;
+
+        @include response("medium") {
+          font-size: 3.12rem;
+        }
+      }
+
+      & .realce-subtitulo {
+        color: $azul;
+      }
+
+      @include response("medium") {
+        align-self: center;
+      }
+    }
+
+    & .container-aprendizado {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 3rem;
+
+      & .caixa {
+        max-width: 45rem;
+        overflow: hidden;
+        border-radius: 2rem;
+
+        &:hover {
+          opacity: 50%;
+        }
+
+        & img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      @include response("medium") {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    & .btn {
+      width: 80%;
+      padding: 1.28rem 1.92rem;
+      border-radius: 3rem;
+      font-size: 3.12rem;
+      font-weight: 700;
+      color: $branco;
+      background-color: $amarelo-Claro;
+      border-color: $marrom;
+      border-right: 4px solid $marrom;
+      border-bottom: 4px solid $marrom;
+      transition: all 0.3s ease-in;
+
+      &:hover {
+        background-color: $branco;
+        color: $amarelo-Claro;
+      }
+    }
+  }
+
+  @include response("medium") {
+    padding: 6rem 9rem;
+  }
+}
+
+//  Seção Capaz
+.secao-capaz {
+  padding: 5rem 8rem;
+
+  & .container-capaz {
+    @include flex(column, center, start, 4.88rem);
+    padding: 5rem 2rem 0 0;
+
+    background-image: url(https://cdn.prod.website-files.com/61b9e0dd381626819c8d4f83/6669ea25d9240a2849caa85b_pgcpy-bg-1.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 150rem;
+
+    & .container-titulo {
+      @include flex($aling: center, $gap: 1.6rem);
+      font-size: 2.3rem;
+      color: $branco;
+
+      & img {
+        max-width: 4rem;
+      }
+
+      @include response("medium") {
+        max-width: 45rem;
+      }
+    }
+
+    & .container-mockup-informacoes {
+      @include flex($justify: space-between);
+
+      & .mockup {
+        width: 47.59vw;
+        transform: translate(-10%, 10%);
+
+        @include response("medium") {
+          transform: translate(0%, 0%);
+        }
+      }
+
+      & .container-texto-capacidades {
+        @include flex(column, center, start, 2.76rem);
+
+        & .capacidade {
+          @include flex($flow: column, $gap: 2.3rem);
+          & .caixa-titulo {
+            @include flex($aling: center, $gap: 1.6rem);
+
+            & img {
+              max-width: 4rem;
+            }
+
+            & .txt {
+              font-size: 2.3rem;
+            }
+          }
+
+          & .txt {
+            font-size: 1.92rem;
+            color: $branco;
+            max-width: 40rem;
+          }
+
+          border-bottom: 2px solid $branco;
+        }
+
+        & .capacidade:last-child {
+          border-bottom: none;
+        }
+      }
+
+      @include response("medium") {
+        @include flex(column, center, start, 0);
+      }
+    }
+
+    @include response("medium") {
+      padding: 5rem 0;
+    }
+  }
+
+  @include response("medium") {
+    padding: 6rem 4rem;
+  }
+}
+
+// Seção Experiências
+.secao-experiencias {
+  padding: 6rem 18rem;
+
+  & .container {
+    @include flex(column, center, center, 3.12rem);
+    max-width: 100rem;
+
+    & .container-titulo {
+      @include flex($aling: center, $gap: 1.6rem);
+      font-size: 2.3rem;
+      color: $branco;
+      background-image: linear-gradient(#206597, #206597);
+      padding: 1.28rem 6.88rem;
+      border-radius: 4rem;
+
+      @include response("medium") {
+        padding: 1.28rem 2rem;
+      }
+    }
+
+    & .container-projetos {
+      @include flex(column, center, start, 2.3rem);
+      width: 100%;
+
+      & .projeto {
+        @include flex();
+        width: 100%;
+        border-radius: 2rem;
+        background-image: linear-gradient(#003962, #00121f);
+        overflow: hidden;
+
+        & .conteudo {
+          @include flex($flow: column, $gap: 1.28rem);
+          color: $branco;
+          max-width: 60rem;
+          padding: 2rem 3.12rem;
+
+          & .caixa-titulo {
+            font-size: 3.12rem;
+            color: $amarelo;
+          }
+
+          & .txt-resultado {
+            font-size: 2.3rem;
+          }
+
+          @include response("medium") {
+            max-width: 100%;
+          }
+        }
+
+        & img {
+          width: 50%;
+
+          @include response("medium") {
+            width: 100%;
+            height: 25rem;
+          }
+        }
+
+        @include response("medium") {
+          @include flex($flow: column);
+        }
+      }
+    }
+
+    & .btn {
+      width: 80%;
+      padding: 1.28rem 1.92rem;
+      border-radius: 3rem;
+      font-size: 3.12rem;
+      font-weight: 700;
+      color: $branco;
+      background-color: $amarelo-Claro;
+      border-color: $marrom;
+      border-right: 4px solid $marrom;
+      border-bottom: 4px solid $marrom;
+      transition: all 0.3s ease-in;
+
+      &:hover {
+        background-color: $branco;
+        color: $amarelo-Claro;
+      }
+    }
+  }
+
+  @include response("medium") {
+    padding: 6rem 4rem;
+  }
+}
+
+// Seção Quem Organiza
+.secao-quemOrganiza {
+  background-image: url(https://cdn.prod.website-files.com/61b9e0dd381626819c8d4f83/666a079387dbf494587480bd_pgcpy-bg-2.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5rem 2rem 0 2rem;
+
+  & .container {
+    @include flex(row, center, space-around, 0);
+    position: relative;
+
+    & .informacao {
+      @include flex($flow: column, $gap: 3.12rem);
+      max-width: 50rem;
+      color: $branco;
+      padding-bottom: 5rem;
+
+      & .caixa-subtitulo {
+        @include flex($aling: center, $gap: 2rem);
+        position: relative;
+        max-width: 40rem;
+
+        &::before {
+          content: "";
+          width: 4px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          background-color: $amarelo-Claro;
+        }
+
+        & .subtitulo {
+          font-size: 2.76rem;
+          @include flex($flow: column);
+          transform: translateX(10%);
+
+          & .realce {
+            color: $amarelo-Claro;
+          }
+        }
+      }
+
+      & .txt {
+        @include flex($flow: column, $gap: 3.12rem);
+        color: black;
+        background-color: $branco;
+        padding: 3rem 2.3rem;
+        border-radius: 2rem;
+        font-size: 1.92rem;
+
+        & .realce {
+          font-weight: 600;
+        }
+      }
+    }
+
+    & img {
+      width: 60%;
+
+      @include response("medium") {
+        transform: translateY(-1%);
+        width: 443px;
+      }
+
+      @include response("small") {
+        width: 330px;
+      }
+    }
+
+    @include response("medium") {
+      @include flex($flow: column, $aling: center);
+    }
+  }
+}
+
+// Rodapé
+.rodape {
+  background-color: $branco;
+  padding: 6rem 0;
+
+  & .container-rodape {
+    @include flex($aling: center, $justify: flex-end, $gap: 2rem);
+    width: 90%;
+
+    & img {
+      width: 5rem;
+    }
+
+    & .container-texto {
+      @include flex(row, center, start, 1.6rem);
+
+      & .txt {
+        & a {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+
+    @include response("medium") {
+      @include flex($justify: center);
+    }
+  }
+}
