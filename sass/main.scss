@@ -1,5 +1,6 @@
 // Variaveis
 $branco: #fff;
+$preto: #000;
 $azul: #246785;
 $amarelo: #edb806;
 $amarelo-Claro: #eebe2a;
@@ -634,6 +635,123 @@ body {
 
     @include response("medium") {
       @include flex($justify: center);
+    }
+  }
+}
+
+// Aside
+
+.popup-formulario {
+  display: none;
+
+  &.aberto {
+    @include flex(column, center, center, 0);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $preto;
+    opacity: 90%;
+  }
+
+  & .formulario {
+    @include flex(column, center, start, 2.3rem);
+    position: relative;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+    background-color: $branco;
+    width: 45rem;
+    border-radius: 2rem;
+    padding: 1.6rem 1.92rem;
+
+    & input {
+      width: 100%;
+      padding: 1.02rem 1.28rem;
+      border-radius: 0.4rem;
+      border: 3px solid $amarelo;
+      box-shadow: 0.5rem 0.5rem 0.6rem lighten($amarelo, 20%);
+    }
+
+    & .btn {
+      width: 100%;
+      padding: 1.28rem 2.3rem;
+      background-color: $amarelo-Claro;
+      color: $branco;
+      font-size: 1.92rem;
+      border: 0px;
+      border-radius: 0.4rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0.5rem 0.5rem 0.6rem lighten($amarelo, 20%);
+    }
+
+    & .iconExit {
+      @include flex($aling: center, $justify: center);
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: $amarelo-Claro;
+      color: $branco;
+      font-size: 2.76rem;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      border: solid 2px $branco;
+      transform: translate(45%, -45%);
+      cursor: pointer;
+    }
+  }
+}
+
+.popup-saida-pagina {
+  display: none;
+
+  &.aberto {
+    @include flex(column, center, center, 0);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $preto;
+    opacity: 90%;
+  }
+
+  & .formulario {
+    @include flex(column, center, start, 2.3rem);
+    position: relative;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+    background-color: $branco;
+    width: 45rem;
+    border-radius: 2rem;
+    padding: 1.6rem 1.92rem;
+
+    & .btn {
+      width: 100%;
+      padding: 1.28rem 2.3rem;
+      background-color: $preto;
+      color: $branco;
+      font-size: 1.92rem;
+      border: 0px;
+      border-radius: 0.4rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    & .iconExitFormularioSaida {
+      @include flex($aling: center, $justify: center);
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: $preto;
+      color: $branco;
+      font-size: 2.76rem;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      border: solid 2px $branco;
+      transform: translate(45%, -45%);
+      cursor: pointer;
     }
   }
 }

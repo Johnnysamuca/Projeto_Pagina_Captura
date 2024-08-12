@@ -693,4 +693,134 @@ body {
   }
 }
 
+.popup-formulario {
+  display: none;
+}
+.popup-formulario.aberto {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 90%;
+}
+.popup-formulario .formulario {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: start;
+  gap: 2.3rem;
+  position: relative;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  width: 45rem;
+  border-radius: 2rem;
+  padding: 1.6rem 1.92rem;
+}
+.popup-formulario .formulario input {
+  width: 100%;
+  padding: 1.02rem 1.28rem;
+  border-radius: 0.4rem;
+  border: 3px solid #edb806;
+  box-shadow: 0.5rem 0.5rem 0.6rem #fbd75e;
+}
+.popup-formulario .formulario .btn {
+  width: 100%;
+  padding: 1.28rem 2.3rem;
+  background-color: #eebe2a;
+  color: #fff;
+  font-size: 1.92rem;
+  border: 0px;
+  border-radius: 0.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0.5rem 0.5rem 0.6rem #fbd75e;
+}
+.popup-formulario .formulario .iconExit {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #eebe2a;
+  color: #fff;
+  font-size: 2.76rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: solid 2px #fff;
+  transform: translate(45%, -45%);
+  cursor: pointer;
+}
+
+.popup-saida-pagina {
+  display: none;
+}
+.popup-saida-pagina.aberto {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 90%;
+}
+.popup-saida-pagina .formulario {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: start;
+  gap: 2.3rem;
+  position: relative;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  width: 45rem;
+  border-radius: 2rem;
+  padding: 1.6rem 1.92rem;
+}
+.popup-saida-pagina .formulario .btn {
+  width: 100%;
+  padding: 1.28rem 2.3rem;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.92rem;
+  border: 0px;
+  border-radius: 0.4rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.popup-saida-pagina .formulario .iconExitFormularioSaida {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #000;
+  color: #fff;
+  font-size: 2.76rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: solid 2px #fff;
+  transform: translate(45%, -45%);
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=style.css.map */

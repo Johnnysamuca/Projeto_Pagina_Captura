@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pagina De Captura</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
   </head>
   <body>
     <main>
@@ -65,7 +69,7 @@
 
             <p class="text-onlineGratuito">100% Online e Gratuito</p>
 
-            <button class="btn">Quero Participar</button>
+            <button class="btn btnHero">Quero Participar</button>
           </div>
 
           <img
@@ -241,7 +245,7 @@
             </div>
           </div>
 
-          <button class="btn">Quero assistir aula de graça!</button>
+          <button class="btn btnAprender">Quero assistir aula de graça!</button>
         </div>
       </section>
 
@@ -400,7 +404,9 @@
             </div>
           </div>
 
-          <button class="btn">Quero Assistir As Aulas De Graça!</button>
+          <button class="btn btnExperiencia">
+            Quero Assistir As Aulas De Graça!
+          </button>
         </div>
       </section>
 
@@ -456,5 +462,31 @@
         </div>
       </div>
     </footer>
+
+    <aside class="popup-formulario">
+      <form class="formulario">
+        <input type="text" placeholder="*Seu Primeiro Nome" />
+        <input type="email" placeholder="*Seu melhor e-mail" />
+        <input type="tel" placeholder="Insira seu whatsApp com DDD" />
+        <button class="btn">Quero Garantit minha vaga</button>
+        <div class="bi bi-x iconExit"></div>
+      </form>
+    </aside>
+
+    <aside class="popup-saida-pagina">
+      <form class="formulario">
+        <h3>Calma aí! Você tem certeza disso?</h3>
+        <p>
+          Essa é a sua chance de aprender tudo que você precisa para se destacar
+          no Mercado de Trabalho. Não deixe essa oportunidade passar!
+        </p>
+        <button class="btn btnExit-saida">
+          Quero Virar Uma Referència na empresa
+        </button>
+        <div class="bi bi-x iconExitFormularioSaida"></div>
+      </form>
+    </aside>
+
+    <script src="./script.js"></script>
   </body>
 </html>
